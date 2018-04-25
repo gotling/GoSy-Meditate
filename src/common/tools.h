@@ -14,6 +14,18 @@ char *format_time_long(char *formated_time, int seconds);
 void menu_cell_basic_draw_multiline(GContext* ctx, const Layer *cell_layer, char *title, char *subtitle, GBitmap *icon);
 void menu_cell_basic_draw_multiline_with_extra_title(GContext* ctx, const Layer *cell_layer, char *title, char *right_title, char *subtitle, GBitmap *icon);
 
+static const uint32_t const double_segments[] = { 400, 100, 400 };
+static const VibePattern double_vibration = {
+	.durations = double_segments,
+	.num_segments = ARRAY_LENGTH(double_segments),
+};
+
+static const uint32_t const triple_segments[] = { 400, 100, 400, 100, 400 };
+static const VibePattern triple_vibration = {
+	.durations = triple_segments,
+	.num_segments = ARRAY_LENGTH(triple_segments),
+};
+
 static const uint32_t const segments[] = { 200, 100, 400, 100, 600 };
 static const VibePattern end_vibration = {
 	.durations = segments,
