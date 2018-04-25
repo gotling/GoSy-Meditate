@@ -13,6 +13,7 @@ static Window *window;
 static TextLayer *header;
 static MenuLayer *menu_layer;
 static int second_menu_items = NUM_SECOND_MENU_ITEMS;
+void (*callback_function)(void);
 
 static uint16_t menu_get_num_sections_callback(MenuLayer *menu_layer, void *data) {
 	return NUM_MENU_SECTIONS;

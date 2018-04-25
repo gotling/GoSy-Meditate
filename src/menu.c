@@ -4,7 +4,6 @@
 #include "interval/config_menu.h"
 #include "common/tools.h"
 #include "common/storage.h"
-#include "config_menu.h"
 
 #define NUM_MENU_SECTIONS 0
 #define NUM_FIRST_MENU_ITEMS 2
