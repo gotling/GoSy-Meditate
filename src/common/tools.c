@@ -87,3 +87,17 @@ void menu_cell_basic_draw_multiline_with_extra_title(GContext* ctx, const Layer 
 		GTextAlignmentLeft,
 		NULL);
 }
+
+void vibrate(int length, int times) {
+	uint32_t segments[times * 2 - 1];
+	for (uint32_t i = 0; i < ARRAY_LENGTH(segments); i++) {
+		segments[i] = length;
+	}
+
+	VibePattern vibration = {
+		.durations = segments,
+		.num_segments = ARRAY_LENGTH(segments),
+	};
+
+	vibes_enqueue_custom_pattern(vibration);
+}
