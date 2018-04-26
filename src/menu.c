@@ -3,6 +3,7 @@
 #include "interval/config.h"
 #include "interval/config_menu.h"
 #include "interval/statistics.h"
+#include "common/entry.h"
 #include "common/tools.h"
 #include "common/storage.h"
 
@@ -76,6 +77,7 @@ static void menu_select_callback(MenuLayer *menu_layer, MenuIndex *cell_index, v
 					interval_init();
 					break;
 				case 1:
+					entry_init_number("Streak", "%d", 1, &statistics.current_streak);
 					break;
 				case 2:
 					interval_config_menu_init(&reload_menu);

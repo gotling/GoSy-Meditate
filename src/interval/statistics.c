@@ -40,10 +40,12 @@ void statistics_persist_migrate(int pkey, int version) {
 void update_statistics() {
 	time_t today = time_start_of_today();
 
-	if (statistics.current_streak == 0) {
-		statistics.current_streak = 1;
+	if (statistics.last_date == today) {
+		// Do nothing
 	} else if (statistics.last_date == today - 24 * 60 * 60) {
 		statistics.current_streak++;
+	} else {
+		statistics.current_streak = 1;
 	}
 
 	statistics.last_date = today;
