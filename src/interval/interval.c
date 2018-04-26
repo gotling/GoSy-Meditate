@@ -1,5 +1,7 @@
 #include <pebble.h>
 #include "config.h"
+#include "statistics.h"
+#include "../common/storage.h"
 #include "../common/tools.h"
 
 enum _activity { MEDITATE, PAUSED };
@@ -133,6 +135,8 @@ static void window_load(Window *window) {
 
 static void window_unload(Window *window) {
 	reset();
+	update_statistics();
+	persist_statistics_write();
 	
 	text_layer_destroy(ui.top_text);
 	text_layer_destroy(ui.middle_text);

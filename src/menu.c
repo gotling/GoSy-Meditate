@@ -2,11 +2,12 @@
 #include "interval/interval.h"
 #include "interval/config.h"
 #include "interval/config_menu.h"
+#include "interval/statistics.h"
 #include "common/tools.h"
 #include "common/storage.h"
 
 #define NUM_MENU_SECTIONS 0
-#define NUM_FIRST_MENU_ITEMS 2
+#define NUM_FIRST_MENU_ITEMS 3
 
 static Window *window;
 static TextLayer *header;
@@ -50,6 +51,10 @@ static void menu_draw_row_callback(GContext* ctx, const Layer *cell_layer, MenuI
 					menu_cell_basic_draw_multiline_with_extra_title(ctx, cell_layer, "Start", timebuf, subbuf, NULL);
 					break;
 				case 1:
+					statistics_tostring(subbuf, sizeof subbuf);
+					menu_cell_basic_draw_multiline(ctx, cell_layer, "Statistics", subbuf, NULL);
+					break;
+				case 2:
 					menu_cell_basic_draw(ctx, cell_layer, "Configure", NULL, NULL);
 					break;
 			}
@@ -71,6 +76,8 @@ static void menu_select_callback(MenuLayer *menu_layer, MenuIndex *cell_index, v
 					interval_init();
 					break;
 				case 1:
+					break;
+				case 2:
 					interval_config_menu_init(&reload_menu);
 					break;
 			}
