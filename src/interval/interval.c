@@ -46,11 +46,11 @@ static void update_ui() {
 
 static void timer_callback(struct tm *tick_time, TimeUnits units_changed) {
 	if (state.total_time == interval_settings.one) {
-		vibes_long_pulse();
+		vibrate(interval_settings.length, 1);
 	} else if (state.total_time == interval_settings.two) {
-		vibes_enqueue_custom_pattern(double_vibration);
+		vibrate(interval_settings.length, 2);
 	} else if (state.total_time == interval_settings.three) {
-		vibes_enqueue_custom_pattern(triple_vibration);
+		vibrate(interval_settings.length, 3);
 	} else if (state.total_time == interval_settings.four) {
 		vibes_enqueue_custom_pattern(end_vibration);
 	}

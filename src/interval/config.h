@@ -5,6 +5,7 @@ typedef struct {
 	int two;
 	int three;
 	int four;
+	int length;
 } IntervalSettings;
 
 extern IntervalSettings interval_settings;

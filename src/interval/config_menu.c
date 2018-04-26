@@ -5,7 +5,7 @@
 #include "../common/storage.h"
 
 #define NUM_MENU_SECTIONS 1
-#define NUM_FIRST_MENU_ITEMS 4
+#define NUM_FIRST_MENU_ITEMS 5
 
 static Window *window;
 static TextLayer *header;
@@ -59,6 +59,10 @@ static void menu_draw_row_callback(GContext* ctx, const Layer *cell_layer, MenuI
 					format_time_long(subbuf, interval_settings.four);
 					menu_cell_basic_draw(ctx, cell_layer, "Last", subbuf, NULL);
 					break;
+				case 4:
+					snprintf(subbuf, 7, "%d ms", interval_settings.length);
+					menu_cell_basic_draw(ctx, cell_layer, "Vibration Length", subbuf, NULL);
+					break;
 			}
 			break;
 	}
@@ -80,6 +84,9 @@ static void menu_select_callback(MenuLayer *menu_layer, MenuIndex *cell_index, v
 					break;
 				case 3:
 					entry_init_time_zero_allowed("Last", &interval_settings.four);
+					break;
+				case 4:
+					entry_init_number("Vibration Length", "%d ms", 50, &interval_settings.length);
 					break;
 			}
 			break;

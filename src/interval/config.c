@@ -6,6 +6,7 @@
 #define TWO_DEFAULT 50 * 60
 #define THREE_DEFAULT 55 * 60
 #define FOUR_DEFAULT 60 * 60
+#define LENGTH_DEFAULT 150
 
 IntervalSettings interval_settings;
 
@@ -27,6 +28,7 @@ static void interval_persist_reset(int pkey) {
 	interval_settings.two = TWO_DEFAULT;
 	interval_settings.three = THREE_DEFAULT;
 	interval_settings.four = FOUR_DEFAULT;
+	interval_settings.length = LENGTH_DEFAULT;
 
 	interval_persist_write(pkey);
 }
