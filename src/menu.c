@@ -63,6 +63,14 @@ static void menu_draw_row_callback(GContext* ctx, const Layer *cell_layer, MenuI
 	}
 }
 
+static void streak_set(void) {
+	if (statistics.current_streak > statistics.longest_streak) {
+		statistics.longest_streak = statistics.current_streak;
+	}
+	statistics.last_date = time_start_of_today();
+	persist_statistics_write();
+}
+
 static void reload_menu(void) {
 	menu_layer_reload_data(menu_layer);
 
@@ -77,7 +85,7 @@ static void menu_select_callback(MenuLayer *menu_layer, MenuIndex *cell_index, v
 					interval_init();
 					break;
 				case 1:
-					entry_init_number("Streak", "%d", 1, &statistics.current_streak);
+					entry_init_number_callback("Streak", "%d", 1, &statistics.current_streak, &streak_set);
 					break;
 				case 2:
 					interval_config_menu_init(&reload_menu);
@@ -108,7 +116,6 @@ static void window_load(Window *window) {
 	menu_layer_set_click_config_onto_window(menu_layer, window);
 	layer_add_child(window_layer, menu_layer_get_layer(menu_layer));
 }
-
 
 static void window_unload(Window *window) {
 	text_layer_destroy(header);
