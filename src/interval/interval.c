@@ -125,7 +125,7 @@ static void window_load(Window *window) {
 
 	ui.time_text = text_layer_create((GRect) { .origin = { 0, 58 }, .size = { bounds.size.w, 52 } });
 	text_layer_set_text_alignment(ui.time_text, GTextAlignmentCenter);
-	text_layer_set_font(ui.time_text, fonts_get_system_font(FONT_KEY_ROBOTO_BOLD_SUBSET_49));
+	text_layer_set_font(ui.time_text, fonts_get_system_font(FONT_KEY_LECO_42_NUMBERS));
 	layer_add_child(window_layer, text_layer_get_layer(ui.time_text));
 	
 	reset();
