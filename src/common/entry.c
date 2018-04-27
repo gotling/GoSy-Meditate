@@ -168,6 +168,13 @@ void entry_init_number(char *title, char *format, int step, int *entry) {
 	entry_init((char*) title, (int*) entry);
 }
 
+void entry_init_number_callback(char *title, char *format, int step, int *entry, void (*callback)(void)) {
+	entry_init_number((char*) title, (char*) format, step, (int*) entry);
+
+	state.callback = true;
+	state.callback_function = callback;
+}
+
 void entry_init_time(char *title, int *entry) {
 	state.entry_type = TIME;
 	state.time_type = TIME_NORMAL;
