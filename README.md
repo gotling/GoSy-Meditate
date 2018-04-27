@@ -8,6 +8,12 @@ Stop watch that vibrates at configurable points. Vibration length can be set.
 
 Tracks how many days in a row app has been used. Set manually with middle click on Statistics.
 
+Screenshots
+----------------
+![alt text](https://raw.githubusercontent.com/gotling/GoSy-Meditate/master/resources/screenshots/gosy-meditate-menu.png)
+![alt text](https://raw.githubusercontent.com/gotling/GoSy-Meditate/master/resources/screenshots/gosy-meditate-meditate.png)
+![alt text](https://raw.githubusercontent.com/gotling/GoSy-Meditate/master/resources/screenshots/gosy-meditate-config.png)
+
 Installation
 ----------------
 Now that Pebble app store is not working anymore the application file has to be sideloaded to your watch.
