@@ -57,10 +57,9 @@ static void timer_callback(struct tm *tick_time, TimeUnits units_changed) {
 		vibes_enqueue_custom_pattern(end_vibration);
 	}
 
-	update_ui();
-
-	update_time_ui();
 	update_time();
+	update_time_ui();
+	update_ui();
 }
 
 static void start() {
