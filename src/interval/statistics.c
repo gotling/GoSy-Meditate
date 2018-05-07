@@ -56,7 +56,13 @@ void update_statistics() {
 }
 
 char *statistics_tostring(char *output, int length) {
-    snprintf(output, length, "Streak: %d Longest: %d", statistics.current_streak, statistics.longest_streak);
+	if (statistics.current_streak == 0) {
+		snprintf(output, length, "No streak");
+	} else if (statistics.current_streak == 1) {
+		snprintf(output, length, "1 day streak");
+	} else {
+		snprintf(output, length, "%d days streak", statistics.current_streak);
+	}
 
 	return output;
 }
